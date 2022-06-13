@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.loading {
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading .spinner {
+    animation: rotator 1.4s linear infinite;
+}
+
+@keyframes rotator {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(270deg);
+    }
+}
+
+.loading .spinner .path {
+    stroke-dasharray: 187;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@keyframes colors {
+    0% {
+        stroke: #4285F4;
+    }
+    25% {
+        stroke: #DE3E35;
+    }
+    50% {
+        stroke: #F7C223;
+    }
+    75% {
+        stroke: #1B9A59;
+    }
+    100% {
+        stroke: #4285F4;
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dashoffset: 187;
+    }
+    50% {
+        stroke-dashoffset: 187/4;
+        transform: rotate(135deg);
+    }
+    100% {
+        stroke-dashoffset: 187;
+        transform: rotate(450deg);
+    }
+}
+
+.camera-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #bbb;
+}
+
+.camera-content #camera {
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-top: 10px;
+}
+
+.camera-content #btn-open-camera {
+    margin: 30px 0;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    background-color: #0078d4;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.camera-content #btn-open-camera:active {
+    background-color: #056fc0;
+}
+
+.prediction-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prediction-result h2 {
+    margin: 5px 0;
+}
+
+.prediction-result ul li {
+    list-style-type: none;
+    margin: 10px 0;
+}
+
+.prediction-result ul li .class-name {
+    display: inline-block;
+    min-width: 100px;
+    color: #218de0;
+}
+
+.prediction-result ul li .prediction {
+    color: #218de0;
+    margin-left: 30px;
+}
